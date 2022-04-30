@@ -7,11 +7,12 @@
   <title>JS Clock</title>
 </head>
 <body>
+  <h1>There's a Clock!</h1>
   <div class = "clock">
     <div class = "clock-face">
       <div class = "hand hour-hand"></div>
-      <div class = "hand minute-hand"></div>
-      <div class = "hand second-hand"></div>
+      <div class = "hand min-hand"></div>
+      <div class = "hand sec-hand"></div>
     </div>
   </div>
 </body>
@@ -25,7 +26,7 @@
   } 
   body{
     font-size: 2rem;
-    display: flex;
+    justify-content: center;
     flex:1;
     min-height: 100vh;
     align-items: center;
@@ -55,17 +56,34 @@
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.1,2.7,0.58, 1);
   }
+  
 
 </style>
 <script>
+
+  function rotateThis()
+  {
+
+  }
   function setDate()
   {
     const now = new Date();
     const seconds = now.getSeconds();
-    console.log(seconds);
+    // console.log(seconds);
+    const minutes = now.getMinutes();
+    const hours = now.getHours();
+    console.log(hours+":"+minutes+":"+seconds);
+    const hourhand = document.getElementsByClassName("hour-hand");
+    const minhand = document.getElementsByClassName("min-hand");  
+    const sechand = document.getElementsByClassName("sec-hand");
+    console.log(minutes);
     
+    sechand[0].style.transform = `rotate(`+(seconds*6+90)+`deg)`;
+    minhand[0].style.transform = `rotate(`+(minutes*6+90)+`deg)`;
+    hourhand[0].style.transform = `rotate(`+(hours*30+90)+`deg)`;
   }
 
   setInterval(setDate,1000);
+
 </script>
 </html>
