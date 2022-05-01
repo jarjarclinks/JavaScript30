@@ -48,7 +48,7 @@
   .hand {
     width: 50%;
     height: 5px;
-    background: black;
+    background: grey;
     position: absolute;
     top:50%;
     transform-origin: 100%;
@@ -56,15 +56,17 @@
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.1,2.7,0.58, 1);
   }
-  
+  .hour-hand{
+    background: black;
+  }
+  .min-hand{
+    background: blue;
+  }
 
 </style>
 <script>
 
-  function rotateThis()
-  {
-
-  }
+ 
   function setDate()
   {
     const now = new Date();
@@ -76,7 +78,7 @@
     const hourhand = document.getElementsByClassName("hour-hand");
     const minhand = document.getElementsByClassName("min-hand");  
     const sechand = document.getElementsByClassName("sec-hand");
-    console.log(minutes);
+    // console.log(minutes);
     
     sechand[0].style.transform = `rotate(`+(seconds*6+90)+`deg)`;
     minhand[0].style.transform = `rotate(`+(minutes*6+90)+`deg)`;
