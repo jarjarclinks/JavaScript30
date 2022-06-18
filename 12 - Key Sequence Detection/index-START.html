@@ -7,6 +7,22 @@
 </head>
 <body>
 <script>
+  const secretKey = "jarjar"
+  const sequence = [];
+  document.addEventListener('keyup',(e)=>{
+    console.log(e.key)
+    sequence.push(e.key)
+    sequence.splice(-secretKey.length,sequence.length-secretKey.length)
+    console.log(sequence)
+    
+    const currentSeq = sequence.join('')
+    console.log(currentSeq)
+    if(currentSeq == secretKey)
+    {
+      console.log("Wabba Luba Dub Dub!")
+      cornify_add();
+    }
+  })
 </script>
 </body>
 </html>
